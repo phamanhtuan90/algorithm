@@ -8,9 +8,11 @@
 using namespace std;
 
 int main(){
-    freopen("mamxanh5.inp","r",stdin);
-    int number1, number2;
-    scanf("%d %d",&number1,&number2);
-    printf("Ket qua %d + %d : %d",number1,number2,number1 + number2);
+    freopen("labiec1a.inp","r",stdin);
+    int num1, num2;
+    scanf("%d %d",&num1,&num2);
+    for(num1; num1 <= num2; num1++){
+        printf("%d \n",num1);
+    }
     return 0;
 }

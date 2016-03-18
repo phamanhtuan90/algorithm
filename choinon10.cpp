@@ -4,33 +4,33 @@
 #include  <stdio.h>
 #include  <stdlib.h>
 #include  <conio.h>
+
 using namespace std;
-void handle(int num){
+
+int cal(int num){
     int result, over;
     if(num <= 50){
          result = num * 230;
     }else{
         over = num - 50;
+        result = 50 * 230;
         if(over <= 50){
-             result = num * 480;
+             result += over * 480;
         }else if (over < 100){
-             result = num * 700;
-        }else {
-             result = num * 900;
+             result += (50 * 480) + (over - 50) * 700;
+        }else{
+             result += (50 * 480) + (99 - 50) * 700 + (over - 99) * 900;
         }
     }
-     printf("Tong tien cho %d so dien la %d d\n\n",num , result);
+    return result;
+
 
 }
 int main(){
     freopen("choinon10.inp","r",stdin);
-    int num1, num2, num3, num4 , num5, num6;
-    scanf("%d %d %d %d %d %d", &num1, &num2, &num3, &num4, &num5, &num6);
-    handle(num1);
-    handle(num2);
-    handle(num3);
-    handle(num4);
-    handle(num5);
-    handle(num6);
+    int num1,result;
+    scanf("%d", &num1);
+    result = cal(num1);
+    printf("Tong tien cho %d so dien la %d d\n\n", num1 , result);
     return 0;
 }

@@ -4,7 +4,9 @@
 #include  <stdio.h>
 #include  <stdlib.h>
 #include  <conio.h>
+
 using namespace std;
+
 void handle(int num1, int num2,int num3){
     int one, two, three;
     if(num1 > num2 || num1 > num3){
@@ -35,15 +37,14 @@ void handle(int num1, int num2,int num3){
         }
     }
 
-    printf("Ba so %d %d %d \n",num1,num2,num3);
+    printf("Ba so %d %d %d \n\n",num1,num2,num3);
     printf("Sap xep %d %d %d \n\n",one,two,three);
 
 }
 int main(){
     freopen("choinon8.inp","r",stdin);
-    int num1, num2, num3, num4 , num5, num6;
-    scanf("%d %d %d %d %d %d", &num1, &num2, &num3, &num4, &num5, &num6);
+    int num1, num2, num3;
+    scanf("%d %d %d", &num1, &num2, &num3);
     handle(num1,num2,num3);
-    handle(num4,num5,num6);
     return 0;
 }

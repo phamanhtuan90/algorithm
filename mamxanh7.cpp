@@ -4,6 +4,7 @@
 #include  <stdio.h>
 #include  <stdlib.h>
 #include  <conio.h>
+
 using namespace std;
 
 int main(){
@@ -13,7 +14,7 @@ int main(){
     printf("Nhap ban kinh\n");
     scanf("%f", &r);
     s = 4 * r * r * pi;
-    v = (4/3) * pi * r * r * r;
+    v = (4.0/3) * pi * r * r * r;
     printf("Dien tich hinh cau la : %f \n",s);
     printf("The tich hinh cau la : %f \n",v);
     return 0;

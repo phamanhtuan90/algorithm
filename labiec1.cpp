@@ -8,9 +8,11 @@
 using namespace std;
 
 int main(){
-    freopen("mamxanh5.inp","r",stdin);
-    int number1, number2;
-    scanf("%d %d",&number1,&number2);
-    printf("Ket qua %d + %d : %d",number1,number2,number1 + number2);
+    freopen("labiec1.inp","r",stdin);
+    int num;
+    scanf("%d",&num);
+    for(int i = 0; i < num; i++){
+        printf("du su dung vong lap for \n");
+    }
     return 0;
 }
