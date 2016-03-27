@@ -24,7 +24,7 @@ toado huong[5] = {
 toado diary[100];
 
 int getStepAstray(toado check,int n){
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i <= n; i++){
         if(diary[i].h == check.h && diary[i].c == check.c){
             return  i;
         }
@@ -66,26 +66,28 @@ void handle(){
     toado current;
     current.h = 0;
     current.c = start - 1;
+    diary[0].h = 0;
+    diary[0].c = start - 1;
     int step = 1;
     int loopNumberAstray = 0;
     current = doMove(current,arr[current.h][current.c]);
     for(int i = 0;i <= nhang * ncot;i++){
         current = doMove(current,arr[current.h][current.c]);
         step++;
-        diary[i].h = current.h;
-        diary[i].c = current.c;
+        diary[i+1].h = current.h;
+        diary[i+1].c = current.c;
         if(current.h >= nhang || current.h < 0 || current.c >= ncot || current.c < 0){
             break;
         }
         int stepAstray = getStepAstray(current,i);
         if(stepAstray > 0){
-             loopNumberAstray = i - stepAstray;
+             loopNumberAstray = i + 1 - stepAstray;
              step = step - loopNumberAstray;
              break;
         }
     }
     if(loopNumberAstray > 0){
-        printf("%d step(s) ) before a loop of %d step(s)\n",step,loopNumberAstray);
+        printf("%d step(s) before a loop of %d step(s)\n",step,loopNumberAstray);
     }else{
         printf("%d step(s) to exit\n",step);
     }

@@ -67,7 +67,7 @@ toado doMove(toado old,int huongNumber){
 }
 
 int isAstray(toado check,int n){
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i <= n; i++){
         if(diary[i].h == check.h && diary[i].c == check.c){
             return  1;
         }
@@ -79,7 +79,8 @@ void handle(){
     toado result;
     result.h = 0;
     result.c = 0;
-
+    diary[0].h = result.h;
+    diary[0].c = result.c;
     //lac duong
     int astray = 0;
     for(int i = 0; i < strlen(inputStr);i++){
@@ -88,8 +89,8 @@ void handle(){
         if(isAstray(result,i) == 1){
             astray++;
         }
-        diary[i].h = result.h;
-        diary[i].c = result.c;
+        diary[i+1].h = result.h;
+        diary[i+1].c = result.c;
         lastMove = huongNumber;
     }
     printf("%f %d\n",range(result),astray);
