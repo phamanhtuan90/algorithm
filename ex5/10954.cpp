@@ -34,7 +34,6 @@ void bubbleSort()
 
 void input()
 {
-    printf("n : %d\n",n);
     for(int i = 0; i < n; i++)
     {
         scanf("%d",&nInput[i]);
