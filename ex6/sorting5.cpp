@@ -19,7 +19,7 @@ struct info {
    char name;
 };
 map <char, info> mapInfo;
-//map <std::pair<char, info>> mapInfo;
+info result[5];
 int nRound;
 vector<string> listRound;
 void input()
@@ -59,19 +59,9 @@ void input()
         listRound.push_back(roundInfo);
     }
 
-//    for(int i = 0; i < nRound; i++){
-//       printf("%s\n",listRound[i].c_str());
-//    }
-//   printf("%d %s %d %d",n,title,nPerson,nRound);
-//    for (map<string,int>::iterator it=mapInfo.begin(); it!=mapInfo.end(); ++it){
-//        printf("%s\n",it->first.c_str());
-//        printf("%d \n",it->second);
-//         //cout << it->first << " => " << it->second << '\n';
-//
-//    }
 
 }
-//void calculatorPoint(string a, char b[], char result[]){
+
 void calculatorPoint(char name,float point)
 {
     mapInfo[name].point += point;
@@ -89,6 +79,23 @@ void calculatorPoint(char name,float point)
 
 
 }
+
+bool cmp (info gamer1, info gamer2)
+{
+    if(gamer1.point > gamer2.point ){
+        return 1;
+    }
+    if(gamer1.point < gamer2.point ){
+        return 0;
+    }
+    if(gamer1.name < gamer2.name ){
+        return 1;
+    }
+
+    return 0;
+}
+
+
 void handle()
 {
     for(int i = 0; i < nRound; i++)
@@ -113,33 +120,18 @@ void handle()
             calculatorPoint(gamer2,1);
         }
     }
-
-}
-
-
-bool cmp (info gamer1, info gamer2)
-{
-    if(gamer1.point > gamer2.point ){
-        return 1;
-    }
-    if(gamer1.name < gamer2.name ){
-        return 1;
-    }
-
-    return 0;
-}
-
-void output(){
-
-    info result[5];
     int i = 0;
     for (map<char,info>::iterator it=mapInfo.begin(); it!=mapInfo.end(); ++it){
         result[i] = it->second;
         i++;
     }
     sort(result, result+nGamer,cmp);
+
+}
+
+void output(){
     printf("%s\n",title);
-    for( i = 0; i < nGamer; i++){
+    for( int i = 0; i < nGamer; i++){
         printf("%d)  %c %f diem, %d tran, %d thang, %d hoa, %d bai\n"
                ,i+1,result[i].name,result[i].point,result[i].all,result[i].t,result[i].h,result[i].b);
     }

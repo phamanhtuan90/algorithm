@@ -47,7 +47,6 @@ bool cmp (arr s1, arr s2)
         return 0;
     }
 
-
     if(s1.c < s2.c){
         return 1;
     }
