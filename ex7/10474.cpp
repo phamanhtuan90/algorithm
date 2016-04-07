@@ -54,7 +54,18 @@ void input(){
 
 void solve(){
     sort(nArr,nArr+n,cmp);
-    printf("CASE #%d",itest);
+    printf("CASE# %d:\n",itest);
+    for (int i=0;i<q;i++){
+        int index = binary_search(qArr[i],nArr,n);
+        if(i > 0){
+            printf("\n");
+        }
+        if(index == -1){
+            printf("%d not found",qArr[i]);
+        }else{
+            printf("%d found at %d",qArr[i],index+1);
+        }
+	}
     printf("\n");
 }
 

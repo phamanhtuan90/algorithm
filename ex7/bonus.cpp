@@ -16,33 +16,6 @@ struct nInfo {
 nInfo arr[100];
 
 
-int binary_search(int number,nInfo arr[],int length){
-	int l = 0;
-	int r = length - 1;
-	int i;
-
-	while ( l <= r ){
-		i = ( l+r )/2;
-
-		if ( number == arr[i].value )
-			return i;
-
-		if ( number > arr[i].value )
-			l = i+1;
-		else
-			r = i-1;
-	}
-	return -1;
-}
-
-bool cmp (nInfo s1, nInfo s2)
-{
-    if(s1.value < s2.value){
-        return 1;
-    }
-
-    return 0;
-}
 
 void input(){
 	scanf("%d %d %d",&n,&minBonus,&maxBonus);
@@ -54,15 +27,15 @@ void input(){
 
 
 void solve(){
-    int minBonuxIndex,maxBonusIndex;
-    nInfo originArr[100];
-    sort(arr, arr+n,cmp);
-    minBonuxIndex = binary_search(minBonus,arr, n);
-    maxBonusIndex = binary_search(maxBonus,arr, n);
-    printf("%d \n",minBonuxIndex);
-    printf("%d \n",maxBonusIndex);
-    for(int i = minBonuxIndex; i <= maxBonusIndex; i++){
-         printf("%d ",arr[i].index);
+    int countNV = 0;
+    for (int i=0;i<n;i++){
+        if(arr[i].value >= minBonus &&  arr[i].value <= maxBonus){
+            printf("%d  ",arr[i].index + 1);
+            countNV++;
+        }
+    }
+    if(countNV == 0){
+         printf("-1");
     }
     printf("\n");
 }
