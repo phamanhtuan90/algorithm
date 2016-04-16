@@ -81,10 +81,9 @@ int demvung (int lang){
     int cuoi = 1;
     qDemVung[0] = lang;
     dDemVung[lang] = 1;
-    level[dau] = 0;
+    level[0] = 0;
     while(dau < cuoi){
         int current = qDemVung[dau];
-        dau++;
         for(int nlang = 1;nlang <= n; nlang++){
             if(nlang != current && dDemVung[nlang] == 0 && arr[current][nlang] == 1){
                 dDemVung[nlang] = 1;
@@ -94,6 +93,7 @@ int demvung (int lang){
                 cuoi++;
             }
         }
+        dau++;
     }
     if(level[cuoi-1] > maxLevel){
         maxLevel =level[cuoi-1];
@@ -169,7 +169,7 @@ void output(){
     }
     printf("\n");
     printf("%d %d \n", langcolap,cau);
-    printf("%d",maxLevel -1);
+    printf("%d",maxLevel);
     for(int a = 0; a < maxRangeInfo.size();a++){
          printf(" %d",maxRangeInfo[a]);
     }
